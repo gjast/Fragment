@@ -8,6 +8,9 @@
 	backdrop-filter: blur(5px);
 	-webkit-backdrop-filter: blur(5px);
 }
+.header-link {
+	width: 30%;
+}
 .header-search {
   display: flex;
   align-items: center;
@@ -15,14 +18,14 @@
   border-radius: 8px;
   padding: 8px 12px;
   gap: 9px;
-  width: 164px;                /* фиксированная ширина блока */
+  width: 40%;                /* фиксированная ширина блока */
   overflow: hidden;            /* обрежет содержимое, если вдруг что-то выйдет */
 }
 
 .header-search img {
   width: 20px;
   height: 20px;
-  opacity: 0.6;
+  opacity: 0.6; 
 }
 
 .header-search-input {

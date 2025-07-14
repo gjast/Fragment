@@ -1,7 +1,7 @@
 import React from "react";
 import "./Header.css";
-import link from "/img/Link.png";
-import seach from "/img/search.png";
+import link from "/img/Link.svg";
+import seach from "/img/search.svg";
 export default function Header() {
   return (
     <div className="header">
