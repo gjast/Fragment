@@ -1,0 +1,36 @@
+.header {
+	background-color: rgba(33, 42, 51, 0.9);
+	width: 100%;
+	padding: 10px;
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+	backdrop-filter: blur(5px);
+	-webkit-backdrop-filter: blur(5px);
+}
+.header-search {
+  display: flex;
+  align-items: center;
+  background-color: rgba(36, 46, 56, 1);
+  border-radius: 8px;
+  padding: 8px 12px;
+  gap: 9px;
+  width: 164px;                /* фиксированная ширина блока */
+  overflow: hidden;            /* обрежет содержимое, если вдруг что-то выйдет */
+}
+
+.header-search img {
+  width: 20px;
+  height: 20px;
+  opacity: 0.6;
+}
+
+.header-search-input {
+  flex: 1;
+  background: transparent;
+  border: none;
+  outline: none;
+  color: rgba(138, 152, 166, 1);
+  font-size: 13px;
+  min-width: 0;                /* ВАЖНО: чтобы flex item мог ужаться */
+}
