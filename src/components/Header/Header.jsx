@@ -1,6 +1,6 @@
 import React from 'react'
 import './Header.css'
-import {link} from '/img/Link.png'
+import link from '/img/Link.png'
 export default function Header() {
 	return (
 
