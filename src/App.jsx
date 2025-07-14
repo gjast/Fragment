@@ -1,5 +1,6 @@
 import React, { useEffect } from 'react';
 import WebApp from '@twa-dev/sdk';
+import Header from './components/Header/Header';
 
 function App() {
   useEffect(() => {
@@ -14,10 +15,9 @@ function App() {
   };
 
   return (
-    <div style={{ padding: 16 }}>
-      <h1>Моя Telegram Mini App</h1>
-      <button onClick={handleClick}>Отправить данные боту</button>
-    </div>
+    <>
+      <Header/>
+    </>
   );
 }
 
