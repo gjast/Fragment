@@ -1,29 +1,48 @@
+:root {
+  --link-color: rgba(77, 178, 255, 1);
+  --background-button: rgba(36, 139, 218, 1);
+  --primary-color: rgba(90, 236, 140, 1);
+  --secondary-color: rgba(140, 154, 169, 1);
+  --background-light: rgba(33, 42, 51, 1);
+  --background-dark: rgba(41, 52, 64, 1);
+  --white: rgb(255, 255, 255);
+}
+
 main {
   margin-top: 16px;
   display: flex;
+  gap: 16px;
   justify-content: center;
-	flex-direction: column;
-	align-items: center;
-	margin-left: 10px;
-	margin-right: 10px;
+  flex-direction: column;
+  align-items: center;
+  margin-left: 10px;
+  margin-right: 10px;
 }
 
 .main-header {
-	display: flex;
-	align-items: center;
+  display: flex;
+  align-items: center;
   gap: 5px;
-  h2 {
-    font-size: clamp(1.5rem, 5vw, 2.5rem);
-  }
 }
+
+.main-header h2 {
+  font-size: clamp(1.5rem, 5vw, 2.5rem);
+}
+
 .main-header-status {
   text-align: center;
-  background-color: rgba(90, 236, 140, 0.1);
-  color: rgba(90, 236, 140, 1);
+  background-color: rgba(
+    90,
+    236,
+    140,
+    0.1
+  ); /* Или используй переменную, если хочешь */
+  color: var(--primary-color);
   padding: 3px 6px;
   border-radius: 5px;
   font-size: clamp(1rem, 3vw, 1.5rem);
 }
+
 .main-timer {
   display: flex;
   justify-content: center;
@@ -31,13 +50,15 @@ main {
   gap: 5px;
   font-size: clamp(1rem, 3vw, 1.5rem);
   margin-top: 17px;
-  p {
-    color: rgba(140, 154, 169, 1);
-  }
-  span {
-    color: rgb(255, 255, 255);
-    font-weight: 700;
-  }
+}
+
+.main-timer p {
+  color: var(--secondary-color);
+}
+
+.main-timer span {
+  color: var(--white);
+  font-weight: 700;
 }
 
 .main-info-price {
@@ -45,37 +66,224 @@ main {
   flex-direction: column;
   width: 100%;
 }
+
 .main-info-price-header {
-	display: flex;
-	justify-content: center;
-  background-color: rgba(41, 52, 64, 1);
-	padding: 7px 0px;
-	p{
-		width: 50%;
-		text-align: center;
-	}
-}
-.main-info-price-body {
-  background-color: rgba(33, 42, 51, 1);
-	display: flex;
-	justify-content: center;
-	padding: 12px 0px;
-}
-.main-info-price-body-item {
-	display: flex;
-	justify-content: center;
-	width: 50%;
-	img {
-		margin-right: 2px;
-	}
-}
-.price-ton {
-	color: white;
-	font-weight: 700;
-	margin-right: 7px;
-}
-.price-usd {
-	color: rgba(140, 154, 169, 1);
-	font-weight: 400;
+  display: flex;
+  justify-content: center;
+  background-color: var(--background-dark);
+  padding: 7px 0px;
+  border-radius: 8px 8px 0px 0px;
 }
 
+.main-info-price-header p {
+  width: 50%;
+  text-align: center;
+  font-weight: 700;
+  color: var(--secondary-color);
+}
+
+.main-info-price-body {
+  background-color: var(--background-light);
+  display: flex;
+  justify-content: center;
+  padding: 12px 0px;
+  border-radius: 0px 0px 8px 8px;
+}
+
+.main-info-price-body-item {
+  display: flex;
+  justify-content: center;
+  width: 50%;
+}
+
+.main-info-price-body-item img {
+  margin-right: 2px;
+}
+
+.price-ton {
+  color: var(--white);
+  font-weight: 700;
+  margin-right: 7px;
+}
+
+.price-usd {
+  color: var(--secondary-color);
+  font-weight: 400;
+}
+
+.main-info {
+  display: flex;
+  flex-direction: column;
+  gap: 1px;
+  width: 100%;
+  border-radius: 8px;
+  overflow: hidden;
+}
+
+.main-info-tablet {
+  background-color: var(--background-light);
+  display: flex;
+  width: 100%;
+  flex: 1;
+  justify-content: space-between;
+  align-items: center;
+  padding: 8px 16px;
+  p {
+    font-weight: 700;
+    color: var(--white);
+  }
+  a {
+    color: var(--link-color);
+    text-decoration: none;
+  }
+}
+.main-info-confirm {
+  color: var(--secondary-color);
+  width: 60%;
+  text-align: center;
+}
+
+#button-confirm {
+  background-color: var(--background-button);
+  width: 100%;
+  text-align: center;
+  padding: 12px 0px;
+  border-radius: 8px;
+  color: var(--white);
+  font-weight: 700;
+  cursor: pointer;
+  border: none;
+}
+.main-info-wallet {
+  display: flex;
+  gap: 2px;
+  color: var(--secondary-color);
+  font-size: 11px;
+}
+
+.main-info-transaction {
+  background-color: var(--background-dark);
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  align-items: center;
+  border-radius: 8px;
+  overflow: hidden;
+  font-size: 3.2vw;
+}
+.main-info-transaction-tablet {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+  flex: 1;
+  padding: 10px 16px;
+  font-weight: 700;
+}
+.main-info-transaction-id {
+  color: var(--secondary-color);
+  text-align: center;
+}
+.main-info-transaction-container {
+  display: flex;
+  justify-content: center;
+  gap: 5px;
+  align-items: center;
+}
+
+.latest-transactions {
+  width: 100%;
+  display: flex;
+  margin-top: 10px;
+  flex-direction: column;
+  justify-content: center;
+  text-align: left;
+}
+
+.latest-transactions-container {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  margin-top: 13px;
+  border-radius: 8px;
+  overflow: hidden;
+}
+.latest-transactions-container-header {
+  display: flex;
+  justify-content: space-between;
+  text-align: center;
+  padding: 7px 16px;
+  font-weight: 700;
+  color: var(--secondary-color);
+  flex: 1;
+  background-color: var(--background-dark);
+}
+.latest-transactions-item {
+  display: flex;
+  justify-content: space-between;
+  padding: 7px 16px;
+  width: 100%;
+}
+.latest-transactions-item-price {
+  display: flex;
+  flex-direction: column;
+}
+.latest-transactions-item-price-ton {
+  display: flex;
+}
+.latest-transactions-item-username {
+  text-align: left;
+  align-items: center;
+  display: flex;
+  width: 33%;
+  color: var(--secondary-color);
+}
+
+.latest-transactions-item-price {
+  align-items: center;
+  text-align: center;
+  width: 33%;
+}
+#dollarEcv {
+  color: var(--secondary-color);
+}
+.latest-transactions-item-price-ton {
+  img {
+    height: 100%;
+  }
+  p {
+    font-weight: 700;
+    margin-left: 5px;
+  }
+}
+
+.latest-transactions-item-status {
+  display: flex;
+  flex-direction: column;
+  align-items: right;;
+  text-align: right;
+  width: 33%;
+}
+.latest-transactions-item-status-time {
+  color: var(--secondary-color);
+}
+.latest-transactions-item-status-container {
+  display: flex;
+  align-items: right;
+  text-align: right;
+  justify-content: right;
+  img {
+    height: 100%;
+  }
+}
+
+.inProgress {
+  color: var(--link-color);
+  font-weight: 700;
+  margin-left: 5px;
+}
+.completed {
+  color: var(--primary-color);
+  font-weight: 700;
+  margin-left: 5px;
+
+}

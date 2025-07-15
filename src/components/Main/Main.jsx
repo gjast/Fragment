@@ -1,31 +1,152 @@
 import React, { useState, useEffect, useRef } from "react";
 import tonImg from "/img/imageTon.svg";
+import tonWhite from "/img/ImageTonWhite.svg";
+import logoComp from "/img/logoComp.svg";
 import "./Main.css";
+import Timer from "../Timer/Timer";
+import Transactions from "../Transactions/Transactions";
+
+const usersTransactions = [
+  {
+    username: "@alpha_crazy",
+    ton: 1573,
+    usd: 1887.6,
+    time: "15m",
+    status: "Completed",
+  },
+  {
+    username: "@ragnar",
+    ton: 1624,
+    usd: 1948.8,
+    time: "20 minutes",
+    status: "In Progress",
+  },
+  {
+    username: "@storm_rider",
+    ton: 1749,
+    usd: 2098.8,
+    time: "30 minutes",
+    status: "Completed",
+  },
+  {
+    username: "@shadow_wolf",
+    ton: 1882,
+    usd: 2258.4,
+    time: "40 minutes",
+    status: "In Progress",
+  },
+  {
+    username: "@night_strike",
+    ton: 1912,
+    usd: 2294.4,
+    time: "45 minutes",
+    status: "Completed",
+  },
+  {
+    username: "@phoenix_fire",
+    ton: 2023,
+    usd: 2427.6,
+    time: "1 h",
+    status: "In Progress",
+  },
+  {
+    username: "@iron_hawk",
+    ton: 2104,
+    usd: 2524.8,
+    time: "1 h 10 minutes",
+    status: "Completed",
+  },
+  {
+    username: "@drake_legend",
+    ton: 2178,
+    usd: 2613.6,
+    time: "1 h 20 minutes",
+    status: "In Progress",
+  },
+  {
+    username: "@wolf_blood",
+    ton: 2256,
+    usd: 2707.2,
+    time: "1 h 30 minutes",
+    status: "Completed",
+  },
+  {
+    username: "@viking_warrior",
+    ton: 2301,
+    usd: 2761.2,
+    time: "1 h 45 minutes",
+    status: "In Progress",
+  },
+  {
+    username: "@dark_axe",
+    ton: 2387,
+    usd: 2864.4,
+    time: "2 h",
+    status: "Completed",
+  },
+  {
+    username: "@ocean_surge",
+    ton: 2469,
+    usd: 2962.8,
+    time: "2 h 15 minutes",
+    status: "In Progress",
+  },
+];
+
+function getRandomTransactions(transactions) {
+  const inProgressTransactions = transactions.filter(
+    (item) => item.status === "In Progress"
+  );
+
+  if (inProgressTransactions.length === 0) return [];
+
+  const randomInProgress =
+    inProgressTransactions[
+      Math.floor(Math.random() * inProgressTransactions.length)
+    ];
+
+  const remainingTransactions = transactions.filter(
+    (item) => item.status !== "In Progress"
+  );
+
+  const randomRemaining = [];
+  while (randomRemaining.length < 2) {
+    const randomIndex = Math.floor(
+      Math.random() * remainingTransactions.length
+    );
+    const randomItem = remainingTransactions[randomIndex];
+    if (!randomRemaining.includes(randomItem)) {
+      randomRemaining.push(randomItem);
+    }
+  }
+
+  const selectedTransactions = [randomInProgress, ...randomRemaining];
+
+  return selectedTransactions.sort((a, b) => {
+    const timeA = extractTimeInMinutes(a.time);
+    const timeB = extractTimeInMinutes(b.time);
+    return timeA - timeB; // Сортировка по возрастанию
+  });
+}
+
+// Функция для извлечения времени в минутах из строки
+function extractTimeInMinutes(time) {
+  const hoursMatch = time.match(/(\d+)\s*h/);
+  const minutesMatch = time.match(/(\d+)\s*minutes/);
+
+  const hours = hoursMatch ? parseInt(hoursMatch[1], 10) : 0;
+  const minutes = minutesMatch ? parseInt(minutesMatch[1], 10) : 0;
+
+  return hours * 60 + minutes; // Возвращаем время в минутах
+}
 
 export default function Main() {
-  const [timer, setTimer] = useState(15 * 60);
-  const timerRef = useRef(timer);
+  const [randomTransactions, setRandomTransactions] = useState([]);
 
   useEffect(() => {
-    timerRef.current = timer;
-
-    const interval = setInterval(() => {
-      setTimer((prev) => {
-        if (timerRef.current <= 1) {
-          return 15 * 60;
-        }
-        return prev - 1;
-      });
-    }, 1000);
-
-    return () => clearInterval(interval);
+    const selectedTransactions = getRandomTransactions(usersTransactions);
+    setRandomTransactions(selectedTransactions);
   }, []);
-
-  const formatTime = (seconds) => {
-    const mins = String(Math.floor(seconds / 60)).padStart(2, "0");
-    const secs = String(seconds % 60).padStart(2, "0");
-    return `${mins}:${secs}`;
-  };
 
   return (
     <main>
@@ -33,10 +154,9 @@ export default function Main() {
         <h2>nameui.t.me</h2>
         <span className="main-header-status">Deal In Progress</span>
       </div>
-      <div className="main-timer">
-        <p>Deal will expire in:</p>
-        <span>{formatTime(timer)}</span>
-      </div>
+
+      <Timer timerDuration={15 * 60} />
+
       <div className="main-info-price">
         <div className="main-info-price-header">
           <p>Deal Price</p>
@@ -55,6 +175,57 @@ export default function Main() {
           </div>
         </div>
       </div>
+
+      <div className="main-info">
+        <div className="main-info-tablet">
+          <p>Telegram Username</p>
+          <a>@nameui</a>
+        </div>
+        <div className="main-info-tablet">
+          <p>Web Address</p>
+          <a>t.me/nameui</a>
+        </div>
+        <div className="main-info-tablet">
+          <p>TON Web 3.0 Address</p>
+          <a>nameui.t.me</a>
+        </div>
+      </div>
+      <p className="main-info-confirm">
+        Funds are already locked in smart-contract escrow. Confirm to receive.
+      </p>
+      <button id="button-confirm">Confirm via Tonkeeper</button>
+
+      <div className="main-info-wallet">
+        <img src={tonWhite} />
+        <p>
+          {"xe2a1"}
+          ...
+          {"9ff3"}
+          (view on Tonscan)
+        </p>
+      </div>
+
+      <div className="main-info-transaction">
+        <div className="main-info-transaction-tablet">
+          <p className="main-info-transaction-id">Verified Merchant ID:</p>
+          <p className="main-info-transaction-id">#54672</p>
+        </div>
+        <div className="main-info-transaction-tablet">
+          <p className="main-info-transaction-id">Security deposit:</p>
+          <div className="main-info-transaction-container">
+            <img src={tonImg} alt="" />
+            <p>25,000</p>
+          </div>
+        </div>
+        <div className="main-info-transaction-tablet">
+          <p className="main-info-transaction-id">Escrow Provider:</p>
+          <div className="main-info-transaction-container">
+            <img src={logoComp} alt="" />
+            <p>Fragment Escrow V2.0</p>
+          </div>
+        </div>
+      </div>
+      <Transactions transactions={randomTransactions} />
     </main>
   );
 }
