@@ -5,7 +5,8 @@ import logoComp from "/img/logoComp.svg";
 import "./Main.css";
 import Timer from "../Timer/Timer";
 import Transactions from "../Transactions/Transactions";
-
+import bxs_shield from "/img/bxs_shield.svg";
+import support from "/img/support.svg";
 const usersTransactions = [
   {
     username: "@alpha_crazy",
@@ -125,11 +126,10 @@ function getRandomTransactions(transactions) {
   return selectedTransactions.sort((a, b) => {
     const timeA = extractTimeInMinutes(a.time);
     const timeB = extractTimeInMinutes(b.time);
-    return timeA - timeB; // Сортировка по возрастанию
+    return timeA - timeB;
   });
 }
 
-// Функция для извлечения времени в минутах из строки
 function extractTimeInMinutes(time) {
   const hoursMatch = time.match(/(\d+)\s*h/);
   const minutesMatch = time.match(/(\d+)\s*minutes/);
@@ -137,7 +137,7 @@ function extractTimeInMinutes(time) {
   const hours = hoursMatch ? parseInt(hoursMatch[1], 10) : 0;
   const minutes = minutesMatch ? parseInt(minutesMatch[1], 10) : 0;
 
-  return hours * 60 + minutes; // Возвращаем время в минутах
+  return hours * 60 + minutes;
 }
 
 export default function Main() {
@@ -226,6 +226,17 @@ export default function Main() {
         </div>
       </div>
       <Transactions transactions={randomTransactions} />
+
+      <footer>
+        <div className="footer-verified">
+          <img  src={bxs_shield} alt="" />
+          <p>Fragment Verified Escrow Protocol</p>
+        </div>
+        <a className="footer-support" href="#">
+          <img src={support} alt="" />
+          <p>Support</p>
+        </a>
+      </footer>
     </main>
   );
 }

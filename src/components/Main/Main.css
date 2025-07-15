@@ -6,6 +6,7 @@
   --background-light: rgba(33, 42, 51, 1);
   --background-dark: rgba(41, 52, 64, 1);
   --white: rgb(255, 255, 255);
+  --footer-background: rgba(17, 20, 23, 1);
 }
 
 main {
@@ -31,12 +32,7 @@ main {
 
 .main-header-status {
   text-align: center;
-  background-color: rgba(
-    90,
-    236,
-    140,
-    0.1
-  ); /* Или используй переменную, если хочешь */
+  background-color: rgba(90, 236, 140, 0.1);
   color: var(--primary-color);
   padding: 3px 6px;
   border-radius: 5px;
@@ -79,6 +75,8 @@ main {
   width: 50%;
   text-align: center;
   font-weight: 700;
+  font-size: clamp(1.2rem, 3.2vw, 1.5rem);
+
   color: var(--secondary-color);
 }
 
@@ -93,7 +91,11 @@ main {
 .main-info-price-body-item {
   display: flex;
   justify-content: center;
+  align-items: center;
   width: 50%;
+  img {
+    height: 100%;
+  }
 }
 
 .main-info-price-body-item img {
@@ -123,6 +125,7 @@ main {
 .main-info-tablet {
   background-color: var(--background-light);
   display: flex;
+  font-size: clamp(0.8rem, 3.2vw, 1.5rem);
   width: 100%;
   flex: 1;
   justify-content: space-between;
@@ -141,6 +144,7 @@ main {
   color: var(--secondary-color);
   width: 60%;
   text-align: center;
+  font-size: clamp(0.8rem, 2vw, 1rem);
 }
 
 #button-confirm {
@@ -151,6 +155,8 @@ main {
   border-radius: 8px;
   color: var(--white);
   font-weight: 700;
+  font-size: clamp(0.8rem, 3.2vw, 1.5rem);
+
   cursor: pointer;
   border: none;
 }
@@ -169,7 +175,7 @@ main {
   align-items: center;
   border-radius: 8px;
   overflow: hidden;
-  font-size: 3.2vw;
+  font-size: clamp(0.8rem, 3.2vw, 1.5rem);
 }
 .main-info-transaction-tablet {
   display: flex;
@@ -185,9 +191,14 @@ main {
 }
 .main-info-transaction-container {
   display: flex;
-  justify-content: center;
+  justify-content: right;
   gap: 5px;
+  flex: 1;
   align-items: center;
+
+  img {
+    height: 100%;
+  }
 }
 
 .latest-transactions {
@@ -259,7 +270,7 @@ main {
 .latest-transactions-item-status {
   display: flex;
   flex-direction: column;
-  align-items: right;;
+  align-items: right;
   text-align: right;
   width: 33%;
 }
@@ -280,12 +291,47 @@ main {
   color: var(--link-color);
   font-weight: 700;
   margin-left: 5px;
-  font-size: 2vw;
-
+  font-size: clamp(12px, 2vw, 24rem);
 }
 .completed {
   color: var(--primary-color);
   font-weight: 700;
   margin-left: 5px;
-  font-size: 2vw;
+  font-size: clamp(12px, 2vw, 24rem);
 }
+
+footer {
+  padding: 10px;
+  background-color: var(--footer-background);
+  width: 100vw;
+  height: 60px; 
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  font-size: clamp(0.8rem, 3.2vw, 1.5rem);
+  color: var(--secondary-color);
+}
+
+.footer-verified {
+  display: flex;
+  align-items: center;
+  margin-left: 2px;
+  height: 70%;
+  img {
+    height: 100%;
+  }
+}
+
+.footer-support {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-right: 2px;
+  height: 70%;
+  text-decoration: none;
+  color: var(--secondary-color);
+  img {
+    height: 100%;
+  }
+}
+
