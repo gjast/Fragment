@@ -1,6 +1,7 @@
 import React, { useEffect } from 'react';
 import WebApp from '@twa-dev/sdk';
 import Header from './components/Header/Header';
+import Main from './components/Main/Main';
 
 function App() {
   useEffect(() => {
@@ -17,6 +18,7 @@ function App() {
   return (
     <>
       <Header/>
+      <Main/>
     </>
   );
 }

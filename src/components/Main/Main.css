@@ -1,0 +1,81 @@
+main {
+  margin-top: 16px;
+  display: flex;
+  justify-content: center;
+	flex-direction: column;
+	align-items: center;
+	margin-left: 10px;
+	margin-right: 10px;
+}
+
+.main-header {
+	display: flex;
+	align-items: center;
+  gap: 5px;
+  h2 {
+    font-size: clamp(1.5rem, 5vw, 2.5rem);
+  }
+}
+.main-header-status {
+  text-align: center;
+  background-color: rgba(90, 236, 140, 0.1);
+  color: rgba(90, 236, 140, 1);
+  padding: 3px 6px;
+  border-radius: 5px;
+  font-size: clamp(1rem, 3vw, 1.5rem);
+}
+.main-timer {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 5px;
+  font-size: clamp(1rem, 3vw, 1.5rem);
+  margin-top: 17px;
+  p {
+    color: rgba(140, 154, 169, 1);
+  }
+  span {
+    color: rgb(255, 255, 255);
+    font-weight: 700;
+  }
+}
+
+.main-info-price {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+}
+.main-info-price-header {
+	display: flex;
+	justify-content: center;
+  background-color: rgba(41, 52, 64, 1);
+	padding: 7px 0px;
+	p{
+		width: 50%;
+		text-align: center;
+	}
+}
+.main-info-price-body {
+  background-color: rgba(33, 42, 51, 1);
+	display: flex;
+	justify-content: center;
+	padding: 12px 0px;
+}
+.main-info-price-body-item {
+	display: flex;
+	justify-content: center;
+	width: 50%;
+	img {
+		margin-right: 2px;
+	}
+}
+.price-ton {
+	color: white;
+	font-weight: 700;
+	margin-right: 7px;
+}
+.price-usd {
+	color: rgba(140, 154, 169, 1);
+	font-weight: 400;
+}
+

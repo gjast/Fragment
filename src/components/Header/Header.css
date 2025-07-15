@@ -18,8 +18,9 @@
   border-radius: 8px;
   padding: 8px 12px;
   gap: 9px;
-  width: 40%;                /* фиксированная ширина блока */
-  overflow: hidden;            /* обрежет содержимое, если вдруг что-то выйдет */
+  width: 40%;     
+	height: 100%;        
+  overflow: hidden;   
 }
 
 .header-search img {
