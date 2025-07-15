@@ -280,10 +280,12 @@ main {
   color: var(--link-color);
   font-weight: 700;
   margin-left: 5px;
+  font-size: 2vw;
+
 }
 .completed {
   color: var(--primary-color);
   font-weight: 700;
   margin-left: 5px;
-
+  font-size: 2vw;
 }
