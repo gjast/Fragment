@@ -1,9 +1,9 @@
-#root {
+/* #root {
   max-width: 1280px;
   margin: 0 auto;
   padding: 2rem;
   text-align: center;
-}
+} */
 
 .logo {
   height: 6em;
@@ -33,10 +33,46 @@
   }
 }
 
-.card {
+/* .card {
   padding: 2em;
-}
+} */
 
 .read-the-docs {
   color: #888;
+}
+
+
+footer {
+  padding: 10px;
+  background-color: var(--footer-background);
+  width: 100vw;
+  height: 100%; 
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  font-size: clamp(0.8rem, 3.2vw, 1.5rem);
+  color: var(--secondary-color);
+}
+
+.footer-verified {
+  display: flex;
+  align-items: center;
+  margin-left: 2px;
+  height: 70%;
+  img {
+    height: 100%;
+  }
+}
+
+.footer-support {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-right: 2px;
+  height: 70%;
+  text-decoration: none;
+  color: var(--secondary-color);
+  img {
+    height: 100%;
+  }
 }

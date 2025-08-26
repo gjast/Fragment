@@ -5,8 +5,7 @@ import logoComp from "/img/logoComp.svg";
 import "./Main.css";
 import Timer from "../Timer/Timer";
 import Transactions from "../Transactions/Transactions";
-import bxs_shield from "/img/bxs_shield.svg";
-import support from "/img/support.svg";
+
 import popup from "/img/popup.svg";
 
 const usersTransactions = [
@@ -247,16 +246,7 @@ export default function Main() {
       </div>
       <Transactions transactions={randomTransactions} />
 
-      <footer>
-        <div className="footer-verified">
-          <img src={bxs_shield} alt="" />
-          <p>Fragment Verified Escrow Protocol</p>
-        </div>
-        <a className="footer-support" href="#">
-          <img src={support} alt="" />
-          <p>Support</p>
-        </a>
-      </footer>
+      
     </main>
   );
 }
