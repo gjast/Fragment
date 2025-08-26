@@ -14,7 +14,8 @@
 .header-search {
   display: flex;
   align-items: center;
-  background-color: rgba(36, 46, 56, 1);
+  /* background-color: rgba(36, 46, 56, 1); */
+  background-color: rgb(249, 252, 255);
   border-radius: 8px;
   padding: 8px 12px;
   gap: 9px;
