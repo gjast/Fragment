@@ -7,6 +7,8 @@ import Timer from "../Timer/Timer";
 import Transactions from "../Transactions/Transactions";
 import bxs_shield from "/img/bxs_shield.svg";
 import support from "/img/support.svg";
+import popup from "/img/popup.svg";
+
 const usersTransactions = [
   {
     username: "@alpha_crazy",
@@ -148,14 +150,32 @@ export default function Main() {
     setRandomTransactions(selectedTransactions);
   }, []);
 
+  const [showPopup, setShowPopup] = useState(false);
+
+  const togglePopup = () => {
+    setShowPopup(true);
+
+    setTimeout(() => {
+      setShowPopup(false);
+    }, 3000);
+  };
+  
+
   return (
     <main>
+      <div
+        className={`showPopup ${showPopup ? "show" : "hide"}`}
+      >
+        <img src={popup} alt="Popup" />
+        <p>Deal has been re-initialized.</p>
+      </div>
+
       <div className="main-header">
         <h2>nameui.t.me</h2>
         <span className="main-header-status">Deal In Progress</span>
       </div>
 
-      <Timer timerDuration={15 * 60} />
+      <Timer timerDuration={15*60} togglePopup={togglePopup}/>
 
       <div className="main-info-price">
         <div className="main-info-price-header">
@@ -229,7 +249,7 @@ export default function Main() {
 
       <footer>
         <div className="footer-verified">
-          <img  src={bxs_shield} alt="" />
+          <img src={bxs_shield} alt="" />
           <p>Fragment Verified Escrow Protocol</p>
         </div>
         <a className="footer-support" href="#">

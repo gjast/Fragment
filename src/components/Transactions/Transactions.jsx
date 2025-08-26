@@ -37,7 +37,7 @@ const Transactions = React.memo(({ transactions }) => {
                 />
                 <p className={`${item.status === "In Progress" ? "completed" : "inProgress"}`}>{item.status}</p>
               </div>
-              <p className="latest-transactions-item-status-time">{item.time}</p>
+              <p className="latest-transactions-item-status-time">{item.time} ago</p>
             </div>
           </div>
         ))}
